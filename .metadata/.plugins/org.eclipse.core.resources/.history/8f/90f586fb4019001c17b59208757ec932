@@ -1,0 +1,57 @@
+package com.productapp.model.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bookapp.model.repo.Book;
+import com.productapp.model.dao.Product;
+import com.productapp.model.dao.ProductRepo;
+
+@Service
+@Transactional
+public class ProductServiceImp1 implements ProductService{
+private ProductRepo productRepo;
+@Autowired
+	public ProductServiceImp1(ProductRepo productRepo) {
+
+	this.productRepo = productRepo;
+}
+
+	@Override
+	public List<Product> getAllProducts() {
+		// TODO Auto-generated method stub
+		return productRepo.findAll();
+	}
+
+	@Override
+	public Product addProduct(Product product) {
+		// TODO Auto-generated method stub
+		return productRepo.save(product);
+	}
+
+	@Override
+	public void deleteProduct(long id) {
+	
+		Product  productToDelete=getProductById(id);
+		productRepo.delete(productToDelete);
+		return productToDelete;
+	}
+
+	@Override
+	public void updateProduct(long id, Product product) {
+		productdao.updateProduct(id, product);
+		
+	}
+
+	@Override
+	public Product getProductById(long id) {
+		// TODO Auto-generated method stub
+		return productdao.getProductById(id);
+	}
+
+
+}

@@ -1,0 +1,8 @@
+package com.bookapp.model.dao;
+//lombok
+public class Book {
+private Integer id;
+private String title;
+private Double price;
+
+}

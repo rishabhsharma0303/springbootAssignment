@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;08.bookapp-jsp&apos;" deleteContents="false" description="Delete resource &apos;08.bookapp-jsp&apos;" element1="/08.bookapp-jsp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1632033867228"/>&#x0A;<refactoring comment="Delete resource &apos;08.bookapp-jsp&apos;" deleteContents="false" description="Delete resource &apos;08.bookapp-jsp&apos;" element1="/08.bookapp-jsp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1632033956864"/>
+</session>

@@ -1,0 +1,10 @@
+package com.productapp.model.dao;
+import java.util.*;
+
+public interface ProductDao {
+	public List<Product> getAllProducts();
+	public Product addProduct(Product product);
+	public void deleteProduct(int product);
+	public void updateProduct(int id, Product product);
+	public Product getProductById(long id);
+}

@@ -1,0 +1,5 @@
+package com.bookapp.model.dao;
+
+public class BookDaoImp1 {
+
+}

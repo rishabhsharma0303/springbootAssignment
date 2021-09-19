@@ -1,0 +1,31 @@
+package com.productapp;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.productapp.model.dao.Book;
+import com.productapp.model.service.BookService;
+import com.productapp.model.service.ProductService;
+
+@SpringBootApplication
+public class BookappApplication implements CommandLineRunner{
+	@Autowired
+	private ProductService productService;
+	public static void main(String[] args) {
+		SpringApplication.run(BookappApplication.class, args);
+		
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+//	bookService.addBook(new Book("rich dada poor dad",400.00));	
+//	bookService.addBook(new Book("monk who sold the ferrari",200.00));
+	
+	//System.out.println("books are added");
+	}
+
+}

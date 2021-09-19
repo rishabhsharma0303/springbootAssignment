@@ -1,0 +1,30 @@
+package com.bookapp.model.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.stereotype.Repository;
+@Repository
+public class BookDaoImp1 implements BookDao{
+
+	private EntityManager em;
+	@Override
+	public List<Book> getAllbooks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Book addBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Book updateBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

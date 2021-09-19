@@ -1,0 +1,61 @@
+package com.productapp.web.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.productapp.model.dao.Product;
+import com.productapp.model.service.ProductService;
+import javax.validation.Valid;
+@RestController
+public class ProductController {
+
+	private ProductService productService;
+	@Autowired
+	public ProductController(ProductService productService) {
+		this.productService=productService;
+	}
+	
+	//-------------all products-----
+	@GetMapping(path = "product")
+	public ResponseEntity<List<Product>> getAllProducts()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProducts());
+	}
+	
+	//------get an specificn product-
+	@GetMapping(path="product/{id}")
+	public ResponseEntity<Product> getAnbook(@PathVariable("id")int id) {
+		return ResponseEntity.status(HttpStatus.OK).body(productService.getProductById(id));
+	}
+	
+	//------add a new product----
+	@PostMapping(path="product")
+	public ResponseEntity<Product>  addbook(@Valid @RequestBody Product product ) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(productService.addProduct(product));
+		
+	}
+	
+//	/--------delete a product-------
+	
+	@DeleteMapping(path="product/{id}")
+	public  ResponseEntity<String> deleteAnProducty(@PathVariable(name="id")int id) {
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body("product with id :"+id+" deleted successfully");
+	}
+	
+	
+	//----update the product-
+	@PutMapping(path = "product/{id}")
+	public ResponseEntity<Product> updateProduct(@PathVariable(name="id")int id,@RequestBody Product product) {
+	return 	ResponseEntity.status(HttpStatus.OK).body(productService.updateProduct(id, product));
+	}
+}

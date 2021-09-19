@@ -1,0 +1,29 @@
+package com.bookapp.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.bookapp.model.service.BookService;
+@Controller
+public class BookController {
+	private BookService bookService;
+	@Autowired
+	public BookController(BookService bookService) {
+		this.bookService=bookService;
+	}
+	
+	//-------------all books-----
+
+	@GetMapping(value = "allbooks")
+	public String showAllBook(ModelMap map) {
+		map.addAttribute("books", bookService.getAllbooks());
+		return "allbooks";
+	}
+	@GetMapping(value = "addbook")
+	public String addBookGet(ModelMap map) {
+		map.addAttribute("book", new Book());
+		return "bookform";
+	}
+}

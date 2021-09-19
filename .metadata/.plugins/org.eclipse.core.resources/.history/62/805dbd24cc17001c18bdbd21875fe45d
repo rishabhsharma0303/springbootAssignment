@@ -1,0 +1,36 @@
+package com.bookapp.model.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+@Repository
+public class BookDaoImp1 implements BookDao{
+
+	private EntityManager em;
+	@Autowired
+	  public BookDaoImp1( EntityManager em) {
+		this.em=em;
+	}
+	
+	@Override
+	public List<Book> getAllbooks() {
+		// TODO Auto-generated method stub
+		return em.createQuery("select b from Book b",Book.class ).getResultList();
+	}
+
+	@Override
+	public Book addBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Book updateBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
